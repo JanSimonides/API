@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <title>Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/italy">Italy <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="england">England</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="germany">Germany</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="spain">Spain</a>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="france">France</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 align="center" class="display-3"  ><span th:text="${user.username}"></span>, Welcome in betting web</h1>
+            <br>
+            <br>
+            <br>
+            <H4 align="center" class="display-6">Enter your favourite team</H4>
+            <hr class="my-4">
+            <form class="form-signin" method="post" th:object="${bet}" action="/main">
+                <p>
+                    <label  for="team" class="sr-only">team</label>
+                    <input  type="text" th:field="${user.team}" id="team" name="team" class="form-control" placeholder="team" required autofocus>
+                </p>
+                <p>
+                    <label hidden for="id" class="sr-only">Username</label>
+                    <input  hidden th:value="${user.id}" id="id" name="id" class="form-control" placeholder="Username" required autofocus>
+                </p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Start betting</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

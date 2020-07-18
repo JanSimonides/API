@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started: Handling Form Submission</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+</head>
+<body>
+<div class="container">
+<h1>Natipuj ligu</h1>
+    <form action="/italy" method="post">
+
+        <p>
+            <label  hidden ="id" class="sr-only">Key</label>
+            <input hidden type="text" th:value="${user.id}" id="id" name="id" class="form-control" placeholder="Username" required autofocus>
+        </p>
+<table th:object="${italy}"  class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Poradie</th>
+        <th scope="col">Klub</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1.</th>
+        <td>
+            <select th:field="${italy.place_1}" id="p1">
+                <option value="AC">AC</option>
+                <option value="Inter">Inter</option>
+                <option value=Juve>Juve</option>
+                <option value="Neapol">Neapol</option>
+                <option value="Lazio">Atalanta</option>
+                <option value="Lazio">Lazio</option>
+                <option value="AS Rím">AS Rím</option>
+                <option value="Sassuolo">Sassuolo</option>
+                <option value="Verona">Verona</option>
+                <option value="Bologna">Bologna</option>
+                <option value="Cagliari">Cagliari</option>
+                <option value="Parma">Parma</option>
+                <option value="Fiorentina">Fiorentina</option>
+                <option value="Udinese">Udinese</option>
+                <option value="Turín">FC Turín</option>
+                <option value="Sampdoria">Sampdoria</option>
+                <option value="Lecce">Lecce</option>
+                <option value="Janov">Janov</option>
+                <option value="Brescia">Brescia</option>
+                <option value="Spal">Spal</option>
+            </select>
+
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">2.</th>
+        <td>
+            <select th:field="${italy.place_2}" id="p2">
+                <option value="AC">AC</option>
+                <option value="Inter">Inter</option>
+                <option value=Juve>Juve</option>
+                <option value="Neapol">Neapol</option>
+                <option value="Lazio">Atalanta</option>
+                <option value="Lazio">Lazio</option>
+                <option value="AS Rím">AS Rím</option>
+                <option value="Sassuolo">Sassuolo</option>
+                <option value="Verona">Verona</option>
+                <option value="Bologna">Bologna</option>
+                <option value="Cagliari">Cagliari</option>
+                <option value="Parma">Parma</option>
+                <option value="Fiorentina">Fiorentina</option>
+                <option value="Udinese">Udinese</option>
+                <option value="Turín">FC Turín</option>
+                <option value="Sampdoria">Sampdoria</option>
+                <option value="Lecce">Lecce</option>
+                <option value="Janov">Janov</option>
+                <option value="Brescia">Brescia</option>
+                <option value="Spal">Spal</option>
+            </select>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+        <p><input  class="btn btn-primary" id="btn" type="submit" value="Submit" title="You must check bet before submit."/>
+            <input class="btn btn-info" id="btnCheck" type="button" value="Check" />
+            <!--<input class="btn btn-danger" type="reset" value="Reset" align="right"/>-->
+        </p>
+        <div id="description" class="description"></div>
+    </form>
+
+    <script src="script.js"></script>
+</div>
+
+</body>
+</html>

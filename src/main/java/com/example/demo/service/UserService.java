@@ -3,11 +3,8 @@ package com.example.demo.service;
 import com.example.demo.model.entity.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -15,66 +12,51 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void createAdmin() {
-        User admin = new User();
-        admin.setEmail("admin@gmail.com");
-        admin.setUsername("admin");
-        admin.setPassword("admin1");
-
-        try {
-            userRepository.save(admin);
-        }
-        catch (Exception ignored){
-        }
-
+    public User getUser(String username){
+        return userRepository.findUserByUsername(username).orElse(null);
     }
 
-    public void loginUser (Map<String, String> body){
-        User user = new User();
-        user.setEmail(body.get("email"));
-        user.setUsername(body.get("username"));
-        user.setPassword(body.get("password"));
-        System.out.println(user.getUsername());
-        if (!userRepository.existsByUsername(user.getUsername())) {
-            throw new ResponseStatusException(
-                    HttpStatus.FORBIDDEN, "Username is not existing"
-            );
+    public User getUser(int id){
+        return userRepository.findUserById(id).orElse(null);
+    }
+
+    public void saveUser (User user){
+        userRepository.save(user);
+    }
+
+    public int createUser(String username, String password, String passwordControl){
+        Optional<User> userCheck = userRepository.findUserByUsername(username);
+        if (userCheck.isPresent()) {
+            return 1;
         }
         else {
-            User logUser = userRepository.findByUsername(user.getUsername());
-            if (!logUser.getPassword().equals(user.getPassword())){
-                throw new ResponseStatusException(
-                        HttpStatus.FORBIDDEN, "Password is wrong"
-                );
+            if (!password.equals(passwordControl)) {
+                return 2;
+            }
+
+            else {
+                User user = new User(username,password);
+                userRepository.save(user);
+                return 0;
             }
         }
 
-
-
     }
 
-    public void createUser(Map<String, String> body) {
-        User user = new User();
-        user.setEmail(body.get("email"));
-        user.setUsername(body.get("username"));
-        user.setPassword(body.get("password"));
 
 
-        if (userRepository.existsByEmail(user.getEmail())){
-            throw new ResponseStatusException(
-                    HttpStatus.FORBIDDEN, "Email is using"
-            );
-        }
-        else if (userRepository.existsByUsername(user.getUsername())) {
-            throw new ResponseStatusException(
-                    HttpStatus.FORBIDDEN, "Username is using"
-            );
-        }
-        else {
-            userRepository.save(user);
-            throw new ResponseStatusException(
-                    HttpStatus.OK, "Registration was successful"
-            );
+    public boolean loginUser (String username, String password) {
+        boolean reulst = userRepository.existsByUsername(username);
+
+        if (reulst == false) {
+            return false;
+        } else {
+            Optional<User> user = userRepository.findUserByUsername(username);
+            if (!user.isPresent()) {
+                return false;
+            } else return user.get().getPassword().equals(password);
+
         }
     }
+
 }

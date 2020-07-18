@@ -3,7 +3,7 @@ spring:
   name: Spring
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/databaza
+    url: jdbc:postgresql://localhost:5432/tipovacka
     username: postgres
     password: qwe
   jpa:
@@ -13,6 +13,6 @@ spring:
     open-in-view: false
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 server:
   port: 8080
