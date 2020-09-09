@@ -5,6 +5,7 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,7 +22,10 @@ public class UserService {
     }
 
     public void saveUser (User user){
-        userRepository.save(user);
+        try {
+            userRepository.save(user);
+        }
+        catch (Exception ignored){}
     }
 
     public int createUser(String username, String password, String passwordControl){
@@ -45,18 +49,37 @@ public class UserService {
 
 
 
-    public boolean loginUser (String username, String password) {
+    public int loginUser (String username, String password) {
         boolean reulst = userRepository.existsByUsername(username);
 
         if (reulst == false) {
-            return false;
+            return 0;
         } else {
             Optional<User> user = userRepository.findUserByUsername(username);
             if (!user.isPresent()) {
-                return false;
-            } else return user.get().getPassword().equals(password);
+                return 0;
+            } else {
+                if (user.get().getPassword().equals(password)){
+                    if (user.get().getItaly() == null){
+                        return 1;
+                    }
+                    else {
+                        return 2;
+                    }
+                }
+                else {
+                    return 0;
+                }
+            }
 
         }
     }
 
+    public List<User> findAll() {
+        List<User> users = userRepository.findAll();
+
+        users.removeIf(e -> (e.getItaly()==null));
+
+        return users;
+    }
 }

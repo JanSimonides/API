@@ -53,6 +53,7 @@ public class ItalyController {
 
     @PostMapping("/showItaly")
     public ModelAndView show (@RequestParam int id, @ModelAttribute(value="italy") Italy italy, RedirectAttributes redirectAttributes){
+        User user = userService.getUser(id);
 
         redirectAttributes.addAttribute("user",id);
         return new ModelAndView("redirect:" + "/showItaly");

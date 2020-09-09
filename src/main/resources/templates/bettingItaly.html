@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started: Handling Form Submission</title>
+    <title>JS Betting</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,7 +15,6 @@
 <div class="container">
 <h1>Natipuj ligu</h1>
     <form action="/italy" method="post">
-
         <p>
             <label  hidden ="id" class="sr-only">Key</label>
             <input hidden type="text" th:value="${user.id}" id="id" name="id" class="form-control" placeholder="Username" required autofocus>
@@ -32,56 +31,160 @@
         <th scope="row">1.</th>
         <td>
             <select th:field="${italy.place_1}" id="p1">
-                <option value="AC">AC</option>
-                <option value="Inter">Inter</option>
-                <option value=Juve>Juve</option>
-                <option value="Neapol">Neapol</option>
-                <option value="Lazio">Atalanta</option>
-                <option value="Lazio">Lazio</option>
-                <option value="AS Rím">AS Rím</option>
-                <option value="Sassuolo">Sassuolo</option>
-                <option value="Verona">Verona</option>
-                <option value="Bologna">Bologna</option>
-                <option value="Cagliari">Cagliari</option>
-                <option value="Parma">Parma</option>
-                <option value="Fiorentina">Fiorentina</option>
-                <option value="Udinese">Udinese</option>
-                <option value="Turín">FC Turín</option>
-                <option value="Sampdoria">Sampdoria</option>
-                <option value="Lecce">Lecce</option>
-                <option value="Janov">Janov</option>
-                <option value="Brescia">Brescia</option>
-                <option value="Spal">Spal</option>
+                <option value="null">Choose a team</option>
             </select>
-
         </td>
     </tr>
     <tr>
         <th scope="row">2.</th>
         <td>
             <select th:field="${italy.place_2}" id="p2">
-                <option value="AC">AC</option>
-                <option value="Inter">Inter</option>
-                <option value=Juve>Juve</option>
-                <option value="Neapol">Neapol</option>
-                <option value="Lazio">Atalanta</option>
-                <option value="Lazio">Lazio</option>
-                <option value="AS Rím">AS Rím</option>
-                <option value="Sassuolo">Sassuolo</option>
-                <option value="Verona">Verona</option>
-                <option value="Bologna">Bologna</option>
-                <option value="Cagliari">Cagliari</option>
-                <option value="Parma">Parma</option>
-                <option value="Fiorentina">Fiorentina</option>
-                <option value="Udinese">Udinese</option>
-                <option value="Turín">FC Turín</option>
-                <option value="Sampdoria">Sampdoria</option>
-                <option value="Lecce">Lecce</option>
-                <option value="Janov">Janov</option>
-                <option value="Brescia">Brescia</option>
-                <option value="Spal">Spal</option>
+                <option value="null">Choose a team</option>
             </select>
-
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">3.</th>
+        <td>
+            <select th:field="${italy.place_3}" id="p3">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">4.</th>
+        <td>
+            <select th:field="${italy.place_4}" id="p4">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">5.</th>
+        <td>
+            <select th:field="${italy.place_5}" id="p5">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">6.</th>
+        <td>
+            <select th:field="${italy.place_6}" id="p6">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">7.</th>
+        <td>
+            <select th:field="${italy.place_7}" id="p7">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">8.</th>
+        <td>
+            <select th:field="${italy.place_8}" id="p8">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">9.</th>
+        <td>
+            <select th:field="${italy.place_9}" id="p9">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">10.</th>
+        <td>
+            <select th:field="${italy.place_10}" id="p10">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">11.</th>
+        <td>
+            <select th:field="${italy.place_11}" id="p11">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">12.</th>
+        <td>
+            <select th:field="${italy.place_12}" id="p12">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">13.</th>
+        <td>
+            <select th:field="${italy.place_13}" id="p13">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">14.</th>
+        <td>
+            <select th:field="${italy.place_14}" id="p14">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">15.</th>
+        <td>
+            <select th:field="${italy.place_15}" id="p15">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">16.</th>
+        <td>
+            <select th:field="${italy.place_16}" id="p16">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">17.</th>
+        <td>
+            <select th:field="${italy.place_17}" id="p17">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">18.</th>
+        <td>
+            <select th:field="${italy.place_18}" id="p18">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">19.</th>
+        <td>
+            <select th:field="${italy.place_19}" id="p19">
+                <option value="null">Choose a team</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">20.</th>
+        <td>
+            <select th:field="${italy.place_20}" id="p20">
+                <option value="null">Choose a team</option>
+            </select>
         </td>
     </tr>
     </tbody>
@@ -95,7 +198,7 @@
         <div id="description" class="description"></div>
     </form>
 
-    <script src="script.js"></script>
+    <script src="scriptItaly.js"></script>
 </div>
 
 </body>

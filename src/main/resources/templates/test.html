@@ -17,7 +17,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div  id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <form class="form-signin" method="post" action="/showItaly">
@@ -70,9 +70,15 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display-4"  ><span th:text="${user.username}"></span>, Your bet has been saved </h1>
-
-        <p class="lead"></p>
+        <h1 class="display-4"  ><span th:text="${user.username}"></span>, your bet has been successfully saved. </h1>
+        <p class="lead">Click on button to show bets of others</p>
+        <form class="form-signin" method="post" action="/showBet">
+            <p>
+                <label hidden for="id" class="sr-only">Username</label>
+                <input hidden  th:value="${user.id}" id="id" name="id" class="form-control">
+            </p>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Show</button>
+        </form>
         <hr class="my-4">
     </div>
 </div>
